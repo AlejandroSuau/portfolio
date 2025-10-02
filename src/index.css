@@ -31,3 +31,73 @@ select.input { flex:0 0 auto; }
 .btn.secondary { background:#0d1428; color:#cbd5e1; border:1px solid #24304f; }
 
 .footer { text-align:center; color: var(--muted); margin: 36px 0 8px; font-size:13px; }
+
+/* === Carousel === */
+.carousel { display: flex; flex-direction: column; gap: 8px; }
+.carousel-viewport {
+  position: relative;
+  width: 100%;
+  padding-top: 56%;           /* 16:9 */
+  background: #0d1428;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #20263a;
+}
+.carousel-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+}
+.nav-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 36px; height: 36px; border-radius: 999px;
+  border: 1px solid #24304f; background: rgba(13,20,40,0.75);
+  color: #e6e9ef; font-size: 20px; line-height: 0;
+  display: grid; place-items: center; cursor: pointer;
+}
+.nav-left { left: 8px; }
+.nav-right { right: 8px; }
+.nav-btn:hover { filter: brightness(1.1); }
+
+.dots { display: flex; gap: 6px; justify-content: center; }
+.dot {
+  width: 8px; height: 8px; border-radius: 999px;
+  background: #2a3556; border: 1px solid #3a4670; cursor: pointer;
+}
+.dot.active { background: #7aa2f7; border-color: #7aa2f7; }
+
+/* === Social pill buttons === */
+.topbar { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0; }
+.social { display:flex; gap:10px; flex-wrap:wrap; }
+
+.social-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  background: linear-gradient(180deg,#0d1428 0%, #0b1124 100%);
+  border:1px solid #20263a;
+  color:#e6e9ef; text-decoration:none; font-weight:700; letter-spacing:0.1px;
+  padding:10px 14px; border-radius:999px;
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease, background .12s ease;
+  box-shadow: 0 1px 0 rgba(0,0,0,.3), inset 0 -1px 0 rgba(255,255,255,.03);
+}
+.social-btn .icon { font-size:16px; line-height:0; }
+.social-btn .label { font-size:14px; }
+
+.social-btn:hover { transform: translateY(-1px); }
+.social-btn:active { transform: translateY(0); }
+
+/* Glows */
+:root {
+  --yt: #ff0033;
+  --li: #0a66c2;
+  --gh: #7aa2f7;
+  --mail: #8b5cf6;
+}
+.social-btn.yt:hover   { border-color: var(--yt);   box-shadow: 0 6px 20px rgba(255,0,51,.25), 0 0 0 1px rgba(255,0,51,.35) inset; }
+.social-btn.li:hover   { border-color: var(--li);   box-shadow: 0 6px 20px rgba(10,102,194,.25), 0 0 0 1px rgba(10,102,194,.35) inset; }
+.social-btn.gh:hover   { border-color: var(--gh);   box-shadow: 0 6px 20px rgba(122,162,247,.25), 0 0 0 1px rgba(122,162,247,.35) inset; }
+.social-btn.mail:hover { border-color: var(--mail); box-shadow: 0 6px 20px rgba(139,92,246,.25), 0 0 0 1px rgba(139,92,246,.35) inset; }
+
+@media (max-width: 700px) {
+  .social { width:100%; }
+  .social-btn { flex:1 1 auto; justify-content:center; }
+}

@@ -1,10 +1,10 @@
 import React from "react";
+import Carousel from "./Carousel.jsx";
 
 export default function ProjectCard({ p }) {
   const isYouTube = p.video?.type === "youtube";
   const isMp4 = p.video?.type === "mp4";
 
-  // Si es YouTube, extrae el ID para embeber
   const ytId = (url) => {
     const m = url?.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]{6,})/);
     return m ? m[1] : null;
@@ -12,8 +12,16 @@ export default function ProjectCard({ p }) {
 
   return (
     <article className="card">
-      <div className="thumb" role="img" aria-label={p.title}
-           style={{ backgroundImage: `url(${p.cover})` }} />
+      {/* IMAGE/S */}
+      {p.images?.length ? (
+        <div style={{ padding: "14px 14px 0 14px" }}>
+          <Carousel images={p.images} title={p.title} />
+        </div>
+      ) : (
+        <div className="thumb" role="img" aria-label={p.title}
+             style={{ backgroundImage: `url(${p.cover})` }} />
+      )}
+
       <div className="content">
         <header className="header">
           <h3>{p.title}</h3>
@@ -30,16 +38,16 @@ export default function ProjectCard({ p }) {
           {isYouTube && ytId(p.video.url) && (
             <a className="btn" target="_blank" rel="noreferrer"
                href={`https://www.youtube.com/watch?v=${ytId(p.video.url)}`}>
-              Ver video
+              Watch video
             </a>
           )}
           {isMp4 && (
             <a className="btn" target="_blank" rel="noreferrer" href={p.video.url}>
-              Ver video
+              Watch video
             </a>
           )}
           <a className="btn secondary" target="_blank" rel="noreferrer" href={p.repoUrl}>
-            Código (GitHub)
+            Code (GitHub)
           </a>
         </div>
       </div>
