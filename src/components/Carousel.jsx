@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 
-export default function Carousel({ images = [], title = "" }) {
+export default function Carousel({ images = [], title = "", onImageClick }) {
   const [idx, setIdx] = useState(0);
   const touchStartX = useRef(null);
-
   const total = images.length;
   const go = (i) => setIdx((prev) => (i + total) % total);
   const next = () => go(idx + 1);
@@ -27,7 +26,7 @@ export default function Carousel({ images = [], title = "" }) {
     touchStartX.current = null;
   };
 
-  if (total === 0) return null;
+  if (!total) return null;
 
   return (
     <div className="carousel" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
@@ -37,6 +36,8 @@ export default function Carousel({ images = [], title = "" }) {
           src={images[idx]}
           alt={`${title} – image ${idx + 1} of ${total}`}
           loading="lazy"
+          onClick={() => onImageClick?.(idx)}
+          style={{ cursor: onImageClick ? "zoom-in" : "default" }}
         />
         {total > 1 && (
           <>

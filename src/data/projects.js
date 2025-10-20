@@ -1,5 +1,20 @@
 export const projects = [
   {
+    id: "pathfinder",
+    title: "Pathfinder",
+    year: 2025,
+    tech: ["Custom Engine 2D", "C++", "SDL2", "A*", "Dijkstra", "BFS"],
+    short: "C++ pathfinding on my 2D engine: A*, Dijkstra, BFS, swappable heuristics (Manhattan/Euclidean/Octile), and visual debugging.",
+    repoUrl: "https://github.com/AlejandroSuau/cplus_cplus_chess",
+    video: { type: "mp4", url: "#" },
+    cover: "https://raw.githubusercontent.com/AlejandroSuau/Engine2D/main/demos/sandbox/result-images/demo-1.png",
+    images: [
+        "https://raw.githubusercontent.com/AlejandroSuau/Engine2D/main/demos/sandbox/result-images/demo-1.png",
+        "https://raw.githubusercontent.com/AlejandroSuau/Engine2D/main/demos/sandbox/result-images/demo-2.png",
+        "https://raw.githubusercontent.com/AlejandroSuau/Engine2D/main/demos/sandbox/result-images/demo-3.png",
+    ]
+  },
+  {
     id: "chess",
     title: "Chess",
     year: 2025,
