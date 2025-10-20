@@ -43,8 +43,6 @@ export default function Lightbox({ images = [], startIndex = 0, title = "", onCl
         aria-label={`${title} – image ${idx + 1} of ${total}`}
         aria-modal="true"
       >
-        <button className="lb-close" onClick={onClose} aria-label="Close lightbox">✕</button>
-
         <div className="lb-stage">
           <button className="lb-nav lb-left" onClick={prev} aria-label="Previous image">‹</button>
 

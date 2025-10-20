@@ -151,6 +151,29 @@ select.input { flex:0 0 auto; }
 }
 .lb-dot.active{ background:#7aa2f7; border-color:#7aa2f7; }
 
+/* --- Mobile full-screen lightbox --- */
+@media (max-width: 700px) {
+  .lb-content{
+    width: 96vw;
+    max-height: 88dvh;          /* ocupa ~88% de la altura útil */
+    margin: 6dvh 0;             /* deja aire arriba/abajo: se ve el fondo */
+    border-radius: 12px;
+    padding: 12px;
+  }
+
+  .lb-stage{
+    height: auto;               /* deja que crezca según la imagen */
+    max-height: 70dvh;          /* reserva espacio para caption/dots */
+    border-radius: 10px;
+  }
+
+  .lb-img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;        /* siempre encaja sin recortar */
+  }
+}
+
 /* Cursor de zoom para portadas sin carrusel */
 .thumb { cursor: zoom-in; }
 
