@@ -162,15 +162,18 @@ select.input { flex:0 0 auto; }
   }
 
   .lb-stage{
-    height: auto;               /* deja que crezca según la imagen */
-    max-height: 70dvh;          /* reserva espacio para caption/dots */
-    border-radius: 10px;
+    display: flex;
+    align-items: center;          /* centra vertical */
+    justify-content: center;      /* centra horizontal */
+    line-height: 0;               /* evita huecos por baseline en móviles */
   }
 
   .lb-img{
+    display: block;               /* quita el inline-gap del img */
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain;        /* siempre encaja sin recortar */
+    height: auto;
+    object-fit: contain;
   }
 }
 
