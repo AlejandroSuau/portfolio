@@ -7,11 +7,11 @@ export const projects = [
     short: "C++ pathfinding on my 2D engine: A*, Dijkstra, BFS, swappable heuristics (Manhattan/Euclidean/Octile), and visual debugging.",
     repoUrl: "https://github.com/AlejandroSuau/cplus_cplus_chess",
     video: { type: "mp4", url: "#" },
-    cover: "https://raw.githubusercontent.com/AlejandroSuau/Engine2D/main/demos/sandbox/result-images/demo-1.png",
+    cover: "https://raw.githubusercontent.com/AlejandroSuau/Engine2D/main/demos/pathfinding-showcase/result-images/demo-1.png",
     images: [
-        "https://raw.githubusercontent.com/AlejandroSuau/Engine2D/main/demos/sandbox/result-images/demo-1.png",
-        "https://raw.githubusercontent.com/AlejandroSuau/Engine2D/main/demos/sandbox/result-images/demo-2.png",
-        "https://raw.githubusercontent.com/AlejandroSuau/Engine2D/main/demos/sandbox/result-images/demo-3.png",
+        "https://raw.githubusercontent.com/AlejandroSuau/Engine2D/main/demos/pathfinding-showcase/result-images/demo-1.png",
+        "https://raw.githubusercontent.com/AlejandroSuau/Engine2D/main/demos/pathfinding-showcase/result-images/demo-2.png",
+        "https://raw.githubusercontent.com/AlejandroSuau/Engine2D/main/demos/pathfinding-showcase/result-images/demo-3.png",
     ]
   },
   {
