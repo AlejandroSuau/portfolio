@@ -1,5 +1,27 @@
 export const projects = [
   {
+    id: "custom-game-engine",
+    title: "C++ OpenGL Game Engine",
+    year: 2025,
+    tech: [
+      "C++",
+      "OpenGL",
+      "3D Rendering",
+      "Game Engine Architecture",
+      "JSON",
+      "glTF"
+    ],
+    short: "Custom-built 2D/3D game engine in C++ and OpenGL, featuring real-time rendering, component-based architecture, scene management, UI, physics, audio, and glTF animation.",
+    repoUrl: "https://github.com/AlejandroSuau/game_engine_3d",
+    video: { type: "mp4", url: "#" },
+    cover: "https://raw.githubusercontent.com/AlejandroSuau/game_engine_3d/refs/heads/main/demo/demo1.png",
+    images: [
+    "https://raw.githubusercontent.com/AlejandroSuau/game_engine_3d/refs/heads/main/demo/demo1.png",
+    "https://raw.githubusercontent.com/AlejandroSuau/game_engine_3d/refs/heads/main/demo/demo2.png",
+    "https://raw.githubusercontent.com/AlejandroSuau/game_engine_3d/refs/heads/main/demo/demo3.png"
+    ]
+  },
+  {
     id: "pathfinder",
     title: "Pathfinder",
     year: 2025,
