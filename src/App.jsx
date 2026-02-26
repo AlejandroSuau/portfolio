@@ -51,7 +51,7 @@ export default function App() {
         <div className="about-actions">
           <a
             className="btn"
-            href="https://YOUR_CV_LINK_HERE"
+            href="https://github.com/AlejandroSuau/portfolio/raw/main/CV_Alejandro_Suau_Ruiz.pdf"
             target="_blank"
             rel="noreferrer"
           >
