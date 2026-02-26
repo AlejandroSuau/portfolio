@@ -5,6 +5,7 @@ import "./index.css";
 
 import { SiGithub, SiLinkedin, SiYoutube } from "react-icons/si";
 import { MdEmail } from "react-icons/md";
+import { FaFilePdf } from "react-icons/fa";
 
 export default function App() {
   const [q, setQ] = useState("");
@@ -23,6 +24,15 @@ export default function App() {
       <header className="topbar">
         <h1>Alejandro Suau · C++ Game Dev</h1>
         <nav className="social">
+          <a
+            className="social-btn cv"
+            href="https://github.com/AlejandroSuau/portfolio/raw/main/CV_Alejandro_Suau_Ruiz.pdf"
+            target="_blank"
+            rel="noreferrer"
+            title="CV (PDF)"
+          >
+            <FaFilePdf className="icon" /><span className="label">Download CV</span>
+          </a>
           <a className="social-btn yt" href="https://www.youtube.com/@The.TrueBoolean" target="_blank" rel="noreferrer" title="YouTube">
             <SiYoutube className="icon" /><span className="label">YouTube</span>
           </a>
@@ -47,17 +57,6 @@ export default function App() {
           Passionate about RTS and RPG games, fast learner, team-oriented, and highly motivated
           to grow and contribute to ambitious game projects.
         </p>
-
-        <div className="about-actions">
-          <a
-            className="btn"
-            href="https://github.com/AlejandroSuau/portfolio/raw/main/CV_Alejandro_Suau_Ruiz.pdf"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Download CV (PDF)
-          </a>
-        </div>
       </section>
 
       <section className="controls">

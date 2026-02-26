@@ -222,3 +222,12 @@ select.input { flex:0 0 auto; }
 .about-actions .btn {
   max-width: 220px;
 }
+
+:root {
+  --cv: #22c55e;
+}
+
+.social-btn.cv:hover {
+  border-color: var(--cv);
+  box-shadow: 0 6px 20px rgba(34,197,94,.25), 0 0 0 1px rgba(34,197,94,.35) inset;
+}
