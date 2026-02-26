@@ -38,6 +38,27 @@ export default function App() {
         </nav>
       </header>
 
+      <section className="about">
+        <p className="about-text">
+          C++ Game Programmer with 7+ years of professional experience in video game development.
+          I’ve worked on live games used by millions of players, focusing on gameplay systems,
+          legacy code refactoring, and maintainable architectures.
+          <br /><br />
+          Passionate about RTS and RPG games, fast learner, team-oriented, and highly motivated
+          to grow and contribute to ambitious game projects.
+        </p>
+
+        <div className="about-actions">
+          <a
+            className="btn"
+            href="https://YOUR_CV_LINK_HERE"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Download CV (PDF)
+          </a>
+        </div>
+      </section>
 
       <section className="controls">
         <input
