@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { HiX } from "react-icons/hi";
 import "./Lightbox.css";
 
 export default function Lightbox({ images = [], startIndex = 0, title = "", onClose }) {
@@ -44,8 +45,14 @@ export default function Lightbox({ images = [], startIndex = 0, title = "", onCl
         aria-label={`${title} – image ${idx + 1} of ${total}`}
         aria-modal="true"
       >
+        <button className="lb-close" onClick={onClose} aria-label="Close">
+          <HiX />
+        </button>
+
         <div className="lb-stage">
-          <button className="lb-nav lb-left" onClick={prev} aria-label="Previous image">‹</button>
+          {total > 1 && (
+            <button className="lb-nav lb-left" onClick={prev} aria-label="Previous image">‹</button>
+          )}
 
           <img
             key={idx}
@@ -54,23 +61,27 @@ export default function Lightbox({ images = [], startIndex = 0, title = "", onCl
             alt={`${title} – image ${idx + 1} of ${total}`}
           />
 
-          <button className="lb-nav lb-right" onClick={next} aria-label="Next image">›</button>
+          {total > 1 && (
+            <button className="lb-nav lb-right" onClick={next} aria-label="Next image">›</button>
+          )}
         </div>
 
         <div className="lb-footer">
           <div className="lb-caption">
-            {title} <span className="lb-count">({idx + 1}/{total})</span>
+            {title} {total > 1 && <span className="lb-count">({idx + 1}/{total})</span>}
           </div>
-          <div className="lb-dots">
-            {images.map((_, i) => (
-              <button
-                key={i}
-                className={`lb-dot ${i === idx ? "active" : ""}`}
-                aria-label={`Go to image ${i + 1}`}
-                onClick={() => setIdx(i)}
-              />
-            ))}
-          </div>
+          {total > 1 && (
+            <div className="lb-dots">
+              {images.map((_, i) => (
+                <button
+                  key={i}
+                  className={`lb-dot ${i === idx ? "active" : ""}`}
+                  aria-label={`Go to image ${i + 1}`}
+                  onClick={() => setIdx(i)}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

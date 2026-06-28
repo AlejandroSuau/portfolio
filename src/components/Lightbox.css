@@ -15,7 +15,7 @@
 
 .lb-content {
   width: min(96vw, 1100px);
-  max-height: 92vh;
+  height: min(92vh, 760px);
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -30,12 +30,35 @@
 .lb-stage {
   position: relative;
   width: 100%;
+  flex: 1;
+  min-height: 0;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
   display: grid;
   place-items: center;
+}
+
+.lb-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(10, 10, 12, 0.75);
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.lb-close:hover {
+  border-color: var(--accent);
 }
 
 .lb-img {
@@ -120,7 +143,7 @@
 @media (max-width: 700px) {
   .lb-content {
     width: 96vw;
-    max-height: 88dvh;
+    height: 88dvh;
     margin: 6dvh 0;
     border-radius: var(--radius);
     padding: 12px;
