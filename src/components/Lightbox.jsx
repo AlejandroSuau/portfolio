@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { HiX } from "react-icons/hi";
 import "./Lightbox.css";
 
@@ -34,7 +35,7 @@ export default function Lightbox({ images = [], startIndex = 0, title = "", onCl
 
   if (!total) return null;
 
-  return (
+  return createPortal(
     <div className="lb-backdrop" onClick={onClose}>
       <div
         className="lb-content"
@@ -84,6 +85,7 @@ export default function Lightbox({ images = [], startIndex = 0, title = "", onCl
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
