@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import "./Carousel.css";
 
 export default function Carousel({ images = [], title = "", onImageClick }) {
   const [idx, setIdx] = useState(0);
   const touchStartX = useRef(null);
   const total = images.length;
-  const go = (i) => setIdx((prev) => (i + total) % total);
+  const go = (i) => setIdx((i + total) % total);
   const next = () => go(idx + 1);
   const prev = () => go(idx - 1);
 
@@ -41,18 +42,18 @@ export default function Carousel({ images = [], title = "", onImageClick }) {
         />
         {total > 1 && (
           <>
-            <button aria-label="Previous image" className="nav-btn nav-left" onClick={prev}>‹</button>
-            <button aria-label="Next image" className="nav-btn nav-right" onClick={next}>›</button>
+            <button aria-label="Previous image" className="carousel-nav carousel-prev" onClick={prev}>‹</button>
+            <button aria-label="Next image" className="carousel-nav carousel-next" onClick={next}>›</button>
           </>
         )}
       </div>
 
       {total > 1 && (
-        <div className="dots">
+        <div className="carousel-dots">
           {images.map((_, i) => (
             <button
               key={i}
-              className={`dot ${i === idx ? "active" : ""}`}
+              className={`carousel-dot ${i === idx ? "active" : ""}`}
               aria-label={`Go to image ${i + 1}`}
               onClick={() => setIdx(i)}
             />

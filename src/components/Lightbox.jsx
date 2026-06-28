@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import "./Lightbox.css";
 
 export default function Lightbox({ images = [], startIndex = 0, title = "", onClose }) {
   const [idx, setIdx] = useState(startIndex);
