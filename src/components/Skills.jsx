@@ -16,7 +16,7 @@ export default function Skills() {
             {skillGroups.map((group) => (
               <div key={group.id} className="skills-card">
                 <h3 className="skills-card-title">{group.label}</h3>
-                <ul className="skills-tags">
+                <ul className="skills-tags stagger">
                   {group.items.map((item) => (
                     <li key={item} className="tag">{item}</li>
                   ))}

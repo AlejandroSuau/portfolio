@@ -1,5 +1,7 @@
+import { useRef } from "react";
 import { FaFilePdf } from "react-icons/fa";
 import useReveal from "../hooks/useReveal.js";
+import useTypewriter from "../hooks/useTypewriter.js";
 import "./Hero.css";
 
 const CODE_SNIPPET = `class Engineer {
@@ -13,9 +15,19 @@ public:
 
 export default function Hero() {
   const [ref, visible] = useReveal();
+  const heroRef = useRef(null);
+  const typed = useTypewriter(CODE_SNIPPET);
+
+  const handleMouseMove = (e) => {
+    const el = heroRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    el.style.setProperty("--mx", `${((e.clientX - rect.left) / rect.width) * 100}%`);
+    el.style.setProperty("--my", `${((e.clientY - rect.top) / rect.height) * 100}%`);
+  };
 
   return (
-    <section id="top" className="hero">
+    <section id="top" className="hero" ref={heroRef} onMouseMove={handleMouseMove}>
       <div className="container hero-inner">
         <div ref={ref} className={`hero-copy reveal ${visible ? "is-visible" : ""}`}>
           <p className="section-label">Software Engineer — Game Development</p>
@@ -45,7 +57,7 @@ export default function Hero() {
             <span className="dot dot-green" />
             <span className="hero-code-filename">engineer.hpp</span>
           </div>
-          <pre className="hero-code-body">{CODE_SNIPPET}</pre>
+          <pre className="hero-code-body">{typed}</pre>
         </div>
       </div>
     </section>

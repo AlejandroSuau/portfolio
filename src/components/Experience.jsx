@@ -12,7 +12,7 @@ export default function Experience() {
           <p className="section-label">03 · Experience</p>
           <h2 className="section-title">Experience</h2>
 
-          <div className="exp-timeline">
+          <div className="exp-timeline stagger">
             {jobs.map((job) => (
               <article key={job.id} className="exp-item">
                 <div className="exp-head">

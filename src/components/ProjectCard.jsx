@@ -17,7 +17,7 @@ export default function ProjectCard({ p }) {
         <div className="card-media">
           <Carousel images={p.images} title={p.title} onImageClick={openLightboxAt} />
         </div>
-      ) : (
+      ) : p.cover ? (
         <div
           className="thumb"
           role="img"
@@ -25,7 +25,7 @@ export default function ProjectCard({ p }) {
           style={{ backgroundImage: `url(${p.cover})` }}
           onClick={() => openLightboxAt(0)}
         />
-      )}
+      ) : null}
 
       <div className="card-content">
         <header className="card-head">
@@ -41,14 +41,16 @@ export default function ProjectCard({ p }) {
           ))}
         </div>
 
-        <div className="card-actions">
-          <a className="btn btn-secondary" target="_blank" rel="noreferrer" href={p.repoUrl}>
-            Code (GitHub)
-          </a>
-        </div>
+        {p.ctaUrl && (
+          <div className="card-actions">
+            <a className="btn btn-secondary" target="_blank" rel="noreferrer" href={p.ctaUrl}>
+              {p.ctaLabel ?? "View project"}
+            </a>
+          </div>
+        )}
       </div>
 
-      {lightboxOpen && (
+      {lightboxOpen && (p.images?.length || p.cover) && (
         <Lightbox
           images={p.images?.length ? p.images : [p.cover]}
           startIndex={lightboxIndex}

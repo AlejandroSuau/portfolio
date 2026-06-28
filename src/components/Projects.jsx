@@ -13,7 +13,7 @@ export default function Projects() {
           <p className="section-label">04 · Projects</p>
           <h2 className="section-title">Featured projects</h2>
 
-          <div className="projects-grid">
+          <div className="projects-grid stagger">
             {featuredProjects.map((p) => (
               <ProjectCard key={p.id} p={p} />
             ))}
@@ -22,29 +22,38 @@ export default function Projects() {
           {secondaryProjects.length > 0 && (
             <div className="secondary-projects">
               <h3 className="subtitle">Other projects</h3>
-              <ul className="secondary-list">
-                {secondaryProjects.map((p) => (
-                  <li key={p.id} className="secondary-item">
-                    <div className="secondary-item-head">
-                      <a
-                        href={p.repoUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="secondary-title"
-                      >
-                        {p.title}
-                      </a>
-                      <span className="card-year mono">{p.year}</span>
-                    </div>
-                    <p className="secondary-short">{p.short}</p>
-                    <div className="secondary-tags">
-                      {p.tech.map((t) => (
-                        <span key={t} className="tag">{t}</span>
-                      ))}
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <div className="secondary-grid stagger">
+                {secondaryProjects.map((p) => {
+                  const Tag = p.ctaUrl ? "a" : "div";
+                  const linkProps = p.ctaUrl
+                    ? { href: p.ctaUrl, target: "_blank", rel: "noreferrer" }
+                    : {};
+                  return (
+                    <Tag key={p.id} className="secondary-card" {...linkProps}>
+                      {p.cover && (
+                        <div
+                          className="secondary-thumb"
+                          role="img"
+                          aria-label={p.title}
+                          style={{ backgroundImage: `url(${p.cover})` }}
+                        />
+                      )}
+                      <div className="secondary-card-body">
+                        <div className="secondary-card-head">
+                          <h4>{p.title}</h4>
+                          <span className="card-year mono">{p.year}</span>
+                        </div>
+                        <p className="secondary-short">{p.short}</p>
+                        <div className="secondary-tags">
+                          {p.tech.map((t) => (
+                            <span key={t} className="tag">{t}</span>
+                          ))}
+                        </div>
+                      </div>
+                    </Tag>
+                  );
+                })}
+              </div>
             </div>
           )}
         </div>

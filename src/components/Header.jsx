@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaFilePdf } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
+import useActiveSection from "../hooks/useActiveSection.js";
 import "./Header.css";
 
 const NAV_LINKS = [
@@ -11,8 +12,11 @@ const NAV_LINKS = [
   { href: "#contact", label: "Contact" },
 ];
 
+const SECTION_IDS = NAV_LINKS.map((link) => link.href.slice(1));
+
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const activeId = useActiveSection(SECTION_IDS);
 
   useEffect(() => {
     const onKey = (e) => {
@@ -31,7 +35,12 @@ export default function Header() {
 
         <nav className={`nav ${open ? "nav-open" : ""}`}>
           {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
+            <a
+              key={link.href}
+              href={link.href}
+              className={activeId === link.href.slice(1) ? "active" : ""}
+              onClick={() => setOpen(false)}
+            >
               {link.label}
             </a>
           ))}
